@@ -3,89 +3,50 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Discover Colombia — Tropical Travel Guide</title>
+    <title>Chicago Random Facts</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
     <header class="site-header">
         <div class="container nav-row">
-            <h1 class="brand">Discover Colombia</h1>
+            <h1 class="brand">Chicago Facts</h1>
             <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
             <nav class="main-nav" id="mainNav">
+                <a href="#facts">Facts</a>
                 <a href="#about">About</a>
-                <a href="#destinations">Destinations</a>
-                <a href="#info">Practical Info</a>
-                <a href="#tips">Tips</a>
+                <a href="#more">More</a>
             </nav>
         </div>
         <section class="hero">
             <div class="hero-inner container">
-                <h2 class="hero-title">Tropical beaches, coffee mountains, vibrant culture</h2>
-                <p class="hero-sub">Sun, color, rhythm — welcome to Colombia.</p>
-                <a class="cta" href="#destinations">Explore Top Destinations</a>
+                <h2 class="hero-title">Surprising, historic, and fun facts about Chicago</h2>
+                <p class="hero-sub">Click the button below to see a random fact.</p>
+                <a class="cta" href="#facts">See Facts</a>
             </div>
-            <svg class="palm" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">
-              <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#00c896" stop-opacity=".15"/><stop offset="1" stop-color="#ff7e67" stop-opacity=".12"/></linearGradient></defs>
-              <rect width="200" height="100" fill="url(#g)" />
-            </svg>
         </section>
     </header>
 
     <main class="container">
-        <section id="about" class="section about">
-            <h3>About Colombia</h3>
-            <p>Colombia sits at the nexus of Caribbean and Pacific coastlines, Andean highlands, and Amazon rainforest. Expect warm hospitality, diverse ecosystems, lively music, and exceptional food and coffee.</p>
-        </section>
-
-        <section id="destinations" class="section destinations">
-            <h3>Top Destinations</h3>
-            <div class="grid">
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1558980664-10e7172d1b7a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=8c4f2bdc0f6d3b5a3c4b7e1b0a7b9f2d" alt="Cartagena"/>
-                    <h4>Cartagena</h4>
-                    <p>Colorful colonial streets and Caribbean beaches — perfect for history and sunsets.</p>
-                </article>
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1529921879218-25f0d6f26b02?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=3a9e9b0a1b3d6c8f4b7e9b3f7a2d1c6b" alt="Medellin"/>
-                    <h4>Medellín</h4>
-                    <p>City of eternal spring — innovation, nightlife, and lush surrounding valleys.</p>
-                </article>
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=2e2f3a9b4c3f9d7b6a1c0f2d9e4a6b3c" alt="Bogota"/>
-                    <h4>Bogotá</h4>
-                    <p>High-altitude capital with museums, street art, and a thriving food scene.</p>
-                </article>
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1508264165352-258a6c6f6f58?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=9a7e6d4c3b2a1f0e6d5c4b3a2f1e0d9c" alt="Tayrona"/>
-                    <h4>Tayrona Park</h4>
-                    <p>Caribbean rainforest meets turquoise waters — hiking and pristine beaches.</p>
-                </article>
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1519764626140-1e1b2a4a6f2e?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=6b4d5f3a2c9e8d1f0b7a4c3b2a9e1d8f" alt="Coffee region"/>
-                    <h4>Coffee Region</h4>
-                    <p>Rolling hills, coffee tours, and charming towns like Salento and Filandia.</p>
-                </article>
+        <section id="facts" class="section facts">
+            <h3>Random Chicago Fact</h3>
+            <div class="fact-card">
+                <p id="factText">Loading a fun fact about Chicago...</p>
+                <div class="fact-actions">
+                    <button id="factBtn" class="fact-btn">New Fact</button>
+                    <button id="tweetBtn" class="fact-btn alt">Tweet</button>
+                </div>
             </div>
         </section>
 
-        <section id="info" class="section info">
-            <h3>Practical Info</h3>
-            <ul>
-                <li><strong>Currency:</strong> Colombian Peso (COP)</li>
-                <li><strong>Language:</strong> Spanish (English commonly spoken in tourist areas)</li>
-                <li><strong>Best time:</strong> Varies by region — generally December–March for Caribbean coast; July–August good for many inland areas.</li>
-                <li><strong>Health & Safety:</strong> Use common-sense precautions; travel insurance recommended.</li>
-            </ul>
+        <section id="about" class="section about">
+            <h3>About</h3>
+            <p>Chicago, founded in 1833 on the southwestern shore of Lake Michigan, is famous for its architecture, deep-dish pizza, jazz and blues history, and a skyline shaped by innovation.</p>
         </section>
 
-        <section id="tips" class="section tips">
-            <h3>Travel Tips</h3>
-            <ol>
-                <li>Try local specialties: arepas, bandeja paisa, fresh ceviche, and coffee tastings.</li>
-                <li>Use day tours for remote areas and hire local guides when visiting parks.</li>
-                <li>Pack for heat on the coast and layers for Andean evenings.</li>
-            </ol>
+        <section id="more" class="section more">
+            <h3>More</h3>
+            <p>Try the "New Fact" button or press the spacebar to reveal another quick tidbit about the city.</p>
         </section>
     </main>
 

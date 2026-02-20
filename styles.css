@@ -35,3 +35,16 @@ body{font-family:'Montserrat',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-ser
   .nav-toggle{display:block}
   .hero-title{font-size:1.4rem}
 }
+
+/* Fact card styles */
+.fact-card{background:linear-gradient(180deg, #fff, #fbfbff);border-radius:12px;padding:1rem;margin-top:.6rem;box-shadow:0 8px 20px rgba(3,16,26,0.06);display:flex;flex-direction:column;gap:.75rem}
+#factText{font-size:1.05rem;color:#05293a}
+.fact-actions{display:flex;gap:.6rem}
+.fact-btn{background:var(--teal);color:#fff;border:0;padding:.5rem .9rem;border-radius:8px;font-weight:700;cursor:pointer}
+.fact-btn.alt{background:transparent;color:var(--teal);border:2px solid var(--teal)}
+.fact-btn:active{transform:translateY(1px)}
+
+@media(max-width:480px){
+  .fact-actions{flex-direction:column}
+  .fact-btn{width:100%}
+}
