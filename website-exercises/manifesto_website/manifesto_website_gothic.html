@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grimoire of Dark Knowledge</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: #0a0a0a;
+            color: #d4af37;
+            font-family: 'Courier New', monospace;
+            line-height: 1.8;
+            background-image: 
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(212, 175, 55, 0.05) 0px,
+                    rgba(212, 175, 55, 0.05) 1px,
+                    transparent 1px,
+                    transparent 2px
+                );
+            border: 2px solid #d4af37;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+            border-bottom: 3px solid #d4af37;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px #d4af37, 0 0 20px #8b0000;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            text-shadow: 0 0 8px #d4af37;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid #d4af37;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+        
+        nav a:hover {
+            background-color: #d4af37;
+            color: #0a0a0a;
+            text-shadow: none;
+            box-shadow: 0 0 15px #d4af37;
+        }
+        
+        .intro {
+            text-align: center;
+            font-style: italic;
+            margin: 1rem 0;
+            color: #a68d5b;
+        }
+        
+        section {
+            margin: 3rem 2rem;
+            padding: 2rem;
+            background-color: rgba(20, 20, 30, 0.8);
+            border: 2px solid #8b0000;
+            box-shadow: inset 0 0 10px rgba(139, 0, 0, 0.3);
+        }
+        
+        ol {
+            margin-left: 2rem;
+        }
+        
+        li {
+            margin: 1rem 0;
+            padding: 0.5rem;
+            border-left: 3px solid #d4af37;
+            padding-left: 1rem;
+        }
+        
+        strong {
+            color: #ff6b6b;
+        }
+        
+        em {
+            color: #a68d5b;
+            font-style: italic;
+        }
+        
+        .spell-source {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 3px solid #d4af37;
+            color: #a68d5b;
+            font-size: 0.9rem;
+        }
+        
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #8b0000, transparent);
+            margin: 3rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⚜ GRIMOIRE OF DARK KNOWLEDGE ⚜</h1>
+        <p class="intro">A collection of historically documented incantations, potions, and prophetic arts</p>
+        <nav>
+            <a href="#incantations">INCANTATIONS</a>
+            <a href="#potions">POTIONS</a>
+            <a href="#divinations">DIVINATIONS</a>
+        </nav>
+    </header>
+
+    <section id="incantations">
+        <h2>• INCANTATIONS •</h2>
+        <p>Words of power spoken in ancient tongues, preserved from medieval grimoires and sacred texts.</p>
+        <div class="images">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Solomon_Seal.jpg" alt="Seal of Solomon engraving" width="200">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Alchemical_Text.jpg" alt="Medieval alchemical manuscript" width="200">
+        </div>
+        <ol>
+            <li><strong>Vade Retro Satana</strong> <span class="spell-source">— Greater Key of Solomon, 14th century</span>
+            <br><em>"Vade retro Satana; nunquam suade mihi vana"</em> • To command demons to depart.
+            </li>
+            <li><strong>Ya Qahhar, Ya Qadir</strong> <span class="spell-source">— Book of Healing, Avicenna, 11th century</span>
+            <br><em>"Ya qahhar, ya qadir, ya latif"</em> • Names of divine power invoked against ailment and curse.
+            </li>
+            <li><strong>Abracadabra</strong> <span class="spell-source">— Celsus, 2nd century Roman physician</span>
+            <br>A diminishing charm, written in descending form to banish fever and sickness.
+            </li>
+            <li><strong>Alaleu Invocation</strong> <span class="spell-source">— Etruscan tomb inscriptions</span>
+            <br><em>"Alaleu, alaleu"</em> • Repeated cry for protection of the deceased in the underworld.
+            </li>
+            <li><strong>Thrice-Holy Hymn</strong> <span class="spell-source">— Byzantine liturgical texts</span>
+            <br><em>"Hagios, Hagios, Hagios"</em> • Sacred invocation repeated thrice to purify and sanctify.
+            </li>
+            <li><strong>The Word of Unbinding</strong> <span class="spell-source">— Goetia tradition</span>
+            <br><em>"Agla, Tetagrammaton, Emmanuel"</em> • Names used to dissolve bonds and restraints.
+            </li>
+            <li><strong>Heka-Formulae</strong> <span class="spell-source">— Egyptian Book of the Dead, 2nd millennium BCE</span>
+            <br><em>"Sekhmet, Sekhmet, ward this place"</em> • Invocation of the lioness goddess for protection.
+            </li>
+            <li><strong>The Binding of Oaths</strong> <span class="spell-source">— Norse skalds and völvas</span>
+            <br><em>"By Odin, by Thor, by the threads of Wyrd"</em> • Words spoken to seal pacts and compacts.
+            </li>
+            <li><strong>Carmina Magica</strong> <span class="spell-source">— Medieval Latin grimoires</span>
+            <br><em>"Spiritus, anima, corporeum, luminale"</em> • Called upon to bind spirit to flesh and will to word.
+            </li>
+            <li><strong>The Shema Incantation</strong> <span class="spell-source">— Kabbalistic texts, medieval period</span>
+            <br><em>"Shema Yisrael, Adonai Eloheinu"</em> • The most sacred utterance, invoked for protection and divine grace.
+            </li>
+        </ol>
+    </section>
+
+    <hr>
+
+    <section id="potions">
+        <h2>• POTIONS & DRAUGHTS •</h2>
+        <p>Recipes drawn from herbals, alchemical treatises, and the wisdom of ancient apothecaries.</p>
+        <div class="images">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Mandrake_%28Medieval_herbal%29.jpg" alt="Medieval mandrake illustration" width="200">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Opium_poppy.jpg" alt="Opium poppy from herbals" width="200">
+        </div>
+        <ol>
+            <li><strong>Love Philtre</strong> <span class="spell-source">— English manuscript, 15th century</span>
+            <br>Rose petals, honey from a virgin hive, a strand of the beloved's hair, steeped in wine beneath the full moon for thirteen nights.
+            </li>
+            <li><strong>Protection Draught</strong> <span class="spell-source">— Papyrus Harris, ancient Egypt</span>
+            <br>Mandrake root, serpent marrow, river barley, and beer—consumed at dawn to ward off malevolent spirits.
+            </li>
+            <li><strong>Sleep Elixir</strong> <span class="spell-source">— Dioscorides' De materia medica</span>
+            <br>Juice of poppy, chamomile blooms, white wine, and crushed leaves of henbane, mixed before nightfall.
+            </li>
+            <li><strong>Vitriol of Wisdom</strong> <span class="spell-source">— Paracelsus' alchemical writings, 16th century</span>
+            <br>Distilled spirits, mercury sublimate, cinnabar dust, and the ashes of scorpion—a single drop confers hidden knowledge.
+            </li>
+            <li><strong>Panacea of Galen</strong> <span class="spell-source">— Galenic medicine, 2nd century</span>
+            <br>Sixteen rare spices, the marrow of a bird, serpent skin, opium, and frankincense boiled together under specific planetary hours.
+            </li>
+            <li><strong>Invisibility Drench</strong> <span class="spell-source">— Picatrix, 10th century Arabic magic</span>
+            <br>Oil of thistle, fig juice, powdered wolf bone, sooted in darkness and applied to the brow.
+            </li>
+            <li><strong>Draught of Truth-Speaking</strong> <span class="spell-source">— Norse völva traditions</span>
+            <br>Berries of the rowan tree, mead fermented with runes carved in oak, drunk to loose the tongue of lies.
+            </li>
+            <li><strong>Embalming Unguent of Revival</strong> <span class="spell-source">— Book of the Dead rituals</span>
+            <br>Natron, myrrh, linen soaked in sacred oils, destined to preserve the body for the afterlife's journey.
+            </li>
+            <li><strong>Aqua Fortis of Transmutation</strong> <span class="spell-source">— Jabir ibn Hayyan (Geber), 8th century</span>
+            <br>Nitric acid distilled from saltpeter, combined with aqua regia—a corrosive essence said to dissolve the base and elevate the precious.
+            </li>
+            <li><strong>Celestial Tincture</strong> <span class="spell-source">— Albrecht of Saxony, Renaissance alchemy</span>
+            <br>Starflower mashed beneath the constellations, fermented in silver vials under the light of Jupiter—grants visions of distant lands.
+            </li>
+        </ol>
+    </section>
+
+    <hr>
+
+    <section id="divinations">
+        <h2>• DIVINATIONS & PROPHECIES •</h2>
+        <p>Methods by which the ancients glimpsed the future, preserved across cultures and centuries.</p>
+        <div class="images">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Ancient_oracle.jpg" alt="Ancient oracle consultation" width="200">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Tarot_cards.jpg" alt="Historic tarot card illustration" width="200">
+        </div>
+        <ol>
+            <li><strong>Auspicy — Reading the Flight of Birds</strong> <span class="spell-source">— Roman augural practice, Pliny the Elder</span>
+            <br>The direction, species, and behavior of birds in the sky were interpreted as signs from Jupiter; practiced by the College of Augurs.
+            </li>
+            <li><strong>Sortes Virgilianae</strong> <span class="spell-source">— Medieval divination, practiced from 4th–17th centuries</span>
+            <br>Random selection of lines from Virgil's works to predict the future; widely used by nobility and clergy across Christendom.
+            </li>
+            <li><strong>The Oracle of Delphi</strong> <span class="spell-source">— Ancient Greece, Herodotus</span>
+            <br>The Pythia priestess inhaled vaporous vapors from a chasm and uttered cryptic pronouncements, interpreted by priests as divine will.
+            </li>
+            <li><strong>Haruspicy — Entrail Reading</strong> <span class="spell-source">— Etruscan and Roman practice</span>
+            <br>Examination of the liver, heart, and intestines of sacrificed animals to divine the favor or displeasure of the gods.
+            </li>
+            <li><strong>Geomancy</strong> <span class="spell-source">— Arabic divinatory art, Al-Kindi, 9th century</span>
+            <br>Sixteen figures formed by random dots cast upon sand or paper, interpreted according to complex astrological and numerical systems.
+            </li>
+            <li><strong>Tarot Cartomancy</strong> <span class="spell-source">— Italian practice, spread across Europe from 15th century onward</span>
+            <br>A deck of seventy-eight painted cards arranged in patterns; each position and image reveals truths hidden from ordinary sight.
+            </li>
+            <li><strong>Astromancy</strong> <span class="spell-source">— Ptolemy's Tetrabiblos, 2nd century</span>
+            <br>The positions of planets and stars at the moment of birth determine character, fate, and the currents of one's life.
+            </li>
+            <li><strong>Scrying — Mirror Gazing</strong> <span class="spell-source">— Medieval grimoire tradition</span>
+            <br>A polished mirror or still water gazed upon in darkness reveals visions of distant events and hidden knowledge.
+            </li>
+            <li><strong>Onomancy — Divination by Names</strong> <span class="spell-source">— Kabbalistic tradition</span>
+            <br>The hidden numbers within the letters of a name, when calculated according to Gematria, unveil the person's true nature and destiny.
+            </li>
+            <li><strong>Cleromancy — The Cast of Lots</strong> <span class="spell-source">— Ancient Near East and Biblical texts</span>
+            <br>Stones, bones, or runes cast to the ground; their positions and arrangements reveal divine judgment and the path forward.
+            </li>
+        </ol>
+    </section>
+
+    <hr>
+
+    <footer>
+        <p>⚜ Preserved from the archives of history ⚜</p>
+        <p>Sourced from medieval grimoires, classical texts, and the collected wisdom of ancient mystics — 2026</p>
+    </footer>
+</body>
+</html>
