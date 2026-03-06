@@ -1,7 +1,7 @@
 ---
 # front matter
 description: Describe when these instructions should be loaded
-applyTo: ''
+applyTo: '**'
 ---
 ## Instructions for how to use the manifesto
 
