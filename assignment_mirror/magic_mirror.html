@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Magic Mirror</title>
+  <style>
+    html,body{height:100%;margin:0;background:#fff}
+    body{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace; color:#000; overflow:hidden}
+
+    /* character grid background */
+    #baseLayer{position:fixed;inset:0;pointer-events:none;z-index:1}
+    .char{position:absolute;font-size:11px;line-height:12px;color:#000;white-space:pre;opacity:0.75}
+
+    /* mirror container (opaque background so chars underneath don't show) */
+    #mirror{position:fixed;left:25vw;width:50vw;top:10vh;height:80vh;overflow:hidden;pointer-events:auto;z-index:3;background:#fff}
+    #mirror .inner{position:relative}
+
+    #mirrorOutline{position:fixed;left:25vw;width:50vw;top:10vh;height:80vh;pointer-events:none;border:2px solid rgba(0,0,0,0.06);box-shadow:0 8px 30px rgba(0,0,0,0.04);border-radius:6px;z-index:6}
+  </style>
+</head>
+<body>
+  <div id="baseLayer"></div>
+  <div id="mirror"><div class="inner" id="mirrorInner"></div></div>
+  <div id="mirrorOutline"></div>
+  <script>
+    const baseLayer = document.getElementById('baseLayer');
+    const mirrorInner = document.getElementById('mirrorInner');
+    
+    // character pool: alphabet, digits, symbols
+    const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?/~`';
+    
+    // mirrors boundaries (in pixels)
+    const mirLeft = window.innerWidth * 0.25;
+    const mirRight = window.innerWidth * 0.75;
+    const mirTop = window.innerHeight * 0.10;
+    const mirBottom = window.innerHeight * 0.90;
+    
+    const charW = 7;   // approx char width
+    const charH = 12;  // approx char height
+    
+    function rand(n){return Math.floor(Math.random()*n)}
+    function randChar(){return chars[rand(chars.length)]}
+    
+    // grid of characters
+    const charEls = [];
+    for(let y=0; y<window.innerHeight; y+=charH){
+      for(let x=0; x<window.innerWidth; x+=charW){
+        // skip if inside mirror rectangle
+        if(x >= mirLeft && x < mirRight && y >= mirTop && y < mirBottom) continue;
+        
+        const span = document.createElement('span');
+        span.className = 'char';
+        span.textContent = randChar();
+        span.style.left = x + 'px';
+        span.style.top = y + 'px';
+        baseLayer.appendChild(span);
+        charEls.push({el: span, x, y});
+      }
+    }
+    
+    // center of screen
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    
+    // calculate max distance (to corner)
+    const maxDist = Math.sqrt(centerX * centerX + centerY * centerY) * 1.5;
+    
+    // track last wave positions to detect when wave enters a character's ring
+    const lastWavePos = [0, 0, 0];
+    
+    function animate(){
+      const now = performance.now() / 1000;  // seconds
+      const cycleTime = now % 3.0;  // 3-second cycle
+      
+      // three waves, each starting 1 second apart
+      const waveStarts = [0, 1.0, 2.0];
+      
+      for(let w = 0; w < 3; w++){
+        let waveTime = cycleTime - waveStarts[w];
+        // normalize negative times by wrapping around the cycle
+        if(waveTime < 0) waveTime += 3.0;
+        
+        // wave expands over 3 seconds
+        const wavePos = (waveTime / 3.0) * maxDist;
+        const ringWidth = 80;
+        
+        // check each character
+        charEls.forEach(({el, x, y})=>{
+          const dx = x - centerX;
+          const dy = y - centerY;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          
+          // detect when wave enters ring: was outside, now inside
+          const distFromWave = Math.abs(dist - wavePos);
+          const distFromLastWave = Math.abs(dist - lastWavePos[w]);
+          
+          const wasInRing = distFromLastWave < ringWidth;
+          const isInRing = distFromWave < ringWidth;
+          
+          // change character when wave first reaches it
+          if(!wasInRing && isInRing){
+            el.textContent = randChar();
+          }
+        });
+        
+        lastWavePos[w] = wavePos;
+      }
+      
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // camera button behavior
+    const mirror = document.getElementById('mirror');
+    const btn = document.createElement('button');
+    btn.id = 'camButton';
+    btn.textContent = 'Enable Camera';
+    btn.style.position = 'absolute';
+    btn.style.left = '50%';
+    btn.style.top = '50%';
+    btn.style.transform = 'translate(-50%, -50%)';
+    btn.style.zIndex = '3';
+    btn.style.padding = '10px 14px';
+    btn.style.borderRadius = '6px';
+    btn.style.border = '1px solid rgba(0,0,0,0.1)';
+    btn.style.background = 'rgba(255,255,255,0.9)';
+    btn.style.cursor = 'pointer';
+    btn.style.fontFamily = 'inherit';
+    mirror.appendChild(btn);
+
+    const disableBtn = document.createElement('button');
+    disableBtn.id = 'disableCamButton';
+    disableBtn.textContent = 'Turn Off Camera';
+    disableBtn.style.position = 'absolute';
+    disableBtn.style.left = '10px';
+    disableBtn.style.bottom = '10px';
+    disableBtn.style.zIndex = '3';
+    disableBtn.style.padding = '6px 10px';
+    disableBtn.style.fontSize = '12px';
+    disableBtn.style.borderRadius = '4px';
+    disableBtn.style.border = '1px solid rgba(0,0,0,0.1)';
+    disableBtn.style.background = 'rgba(255,255,255,0.9)';
+    disableBtn.style.cursor = 'pointer';
+    disableBtn.style.fontFamily = 'inherit';
+    disableBtn.style.display = 'none';
+    mirror.appendChild(disableBtn);
+
+    const video = document.createElement('video');
+    video.id = 'mirrorVideo';
+    video.autoplay = true;
+    video.playsInline = true;
+    video.muted = true;
+    video.style.position = 'absolute';
+    video.style.inset = '0';
+    video.style.width = '100%';
+    video.style.height = '100%';
+    video.style.objectFit = 'cover';
+    video.style.background = '#000';
+    video.style.zIndex = '1';
+    video.style.display = 'none';
+    mirror.appendChild(video);
+
+    btn.addEventListener('click', async ()=>{
+      try{
+        btn.disabled = true;
+        btn.textContent = 'Starting…';
+        const stream = await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'}, audio:false});
+        video.srcObject = stream;
+        video.style.display = 'block';
+        btn.style.display = 'none';
+        disableBtn.style.display = 'block';
+      }catch(err){
+        console.error('Camera error', err);
+        btn.disabled = false;
+        btn.textContent = 'Enable Camera';
+        alert('Camera access failed or was denied.');
+      }
+    });
+
+    disableBtn.addEventListener('click', ()=>{
+      const stream = video.srcObject;
+      if(stream){
+        stream.getTracks().forEach(track => track.stop());
+      }
+      video.srcObject = null;
+      video.style.display = 'none';
+      disableBtn.style.display = 'none';
+      btn.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Enable Camera';
+    });
+  </script>
+</body>
+</html>
